@@ -1,8 +1,8 @@
 import React from "react";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import App from "./App";
-import { Input, Button, TodoList } from "./App";
+import App from ".";
+import { Input, Button, TodoList } from ".";
 
 Enzyme.configure({ adapter: new Adapter() });
 const mount = Enzyme.mount;
