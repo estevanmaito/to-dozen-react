@@ -4,7 +4,7 @@
 
 - [Class Component](src/class-component)
 - [Class PureComponent](src/pure-component)
-- Function component
+- [Function component](src/function-component)
 - Hooks
 - Context
 - Redux
