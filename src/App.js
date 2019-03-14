@@ -1,25 +1,67 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-class App extends Component {
+export class Input extends Component {
+  render() {
+    const { onChange, text } = this.props;
+    return <input type="text" value={text} onChange={onChange} />;
+  }
+}
+
+export class Button extends Component {
+  render() {
+    const { onClick } = this.props;
+    return <button onClick={onClick}>Add</button>;
+  }
+}
+
+export class TodoList extends Component {
+  render() {
+    const { items } = this.props;
+    return (
+      <ul>
+        {items.map(item => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    );
+  }
+}
+
+export class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      inputText: "",
+      items: []
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleAddToDo = this.handleAddToDo.bind(this);
+  }
+
+  handleInputChange(event) {
+    this.setState({ inputText: event.target.value });
+  }
+
+  handleAddToDo() {
+    if (!this.state.inputText) return;
+
+    this.setState(state => {
+      return {
+        items: state.items.concat(state.inputText),
+        inputText: ""
+      };
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Input onChange={this.handleInputChange} text={this.state.inputText} />
+        <Button onClick={this.handleAddToDo} />
+        <TodoList items={this.state.items} />
       </div>
     );
   }

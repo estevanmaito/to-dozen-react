@@ -2,8 +2,9 @@
 
 ## One to-do, a dozen React ways to code
 
-- Class
-- Function
+- Class Component
+- Class PureComponent
+- Function component
 - Hooks
 - Context
 - Redux
