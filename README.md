@@ -2,8 +2,8 @@
 
 ## One to-do, a dozen React ways to code
 
-- Class Component
-- Class PureComponent
+- [Class Component](src/class-component)
+- [Class PureComponent](src/pure-component)
 - Function component
 - Hooks
 - Context
